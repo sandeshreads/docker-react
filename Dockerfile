@@ -7,4 +7,6 @@ COPY . .
 RUN npm run build 
 
 FROM nginx
+# need the below for elasticbeanstalk, cos ya dumb! 
+EXPOSE 80
 COPY --from=builder /app/build /usr/share/nginx/html
